@@ -1,0 +1,76 @@
+{
+  "env": {
+    "browser": true,
+    "es2021": true
+  },
+  "extends": [
+    "airbnb",
+    "plugin:@typescript-eslint/recommended",
+    "plugin:@next/next/recommended",
+    "plugin:eslint-comments/recommended",
+    "plugin:import/recommended",
+    "plugin:import/typescript",
+    "plugin:prettier/recommended"
+  ],
+  "parser": "@typescript-eslint/parser",
+  "parserOptions": {
+    "@typescript-eslint/member-ordering": [
+      "warn",
+      {
+        "default": {
+          "memberTypes": [
+            "static-field",
+            "field",
+            "constructor",
+            "static-method",
+            "method"
+          ],
+          "order": "alphabetically"
+        }
+      }
+    ],
+
+    "ecmaFeatures": {
+      "jsx": true
+    },
+    "ecmaVersion": "latest",
+    "sourceType": "module"
+  },
+  "plugins": ["sort-keys-fix", "prettier", "@typescript-eslint"],
+  "rules": {
+    "func/names": "off",
+    "object-shorthand": "off",
+    "react/jsx-filename-extension": [
+      2,
+      { "extensions": [".js", ".jsx", ".ts", ".tsx"] }
+    ],
+    "react/function-component-definition": [
+      2,
+      { "namedComponents": "arrow-function" }
+    ],
+    "react/jsx-props-no-spreading": "off",
+    "react/prop-types": "off",
+    "sort-keys-fix/sort-keys-fix": "warn",
+    "import/order": [
+      "warn",
+      {
+        "alphabetize": {
+          "caseInsensitive": false,
+          "order": "asc"
+        },
+        "groups": ["builtin", "external", "parent", "sibling", "index"],
+        "newlines-between": "always",
+        "pathGroups": [
+          {
+            "group": "external",
+            "pattern": "@hodlnaut/**",
+            "position": "after"
+          }
+        ],
+        // From https://github.com/benmosher/eslint-plugin-import/issues/1682
+        "pathGroupsExcludedImportTypes": []
+      }
+    ],
+    "import/prefer-default-export": "off"
+  }
+}
